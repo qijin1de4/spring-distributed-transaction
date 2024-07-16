@@ -1,0 +1,21 @@
+# Eclipse
+.classpath
+.project
+.settings/
+.factorypath
+# Intellij
+.idea/
+*.iml
+*.iws
+*.log
+*.html
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+.mvn/
+mvnw
+mvnw.cmd
