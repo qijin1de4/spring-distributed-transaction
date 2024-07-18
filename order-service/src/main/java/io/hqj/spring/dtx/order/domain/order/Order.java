@@ -1,26 +1,26 @@
-package io.hqj.spring.dtx.domain.product;
+package io.hqj.spring.dtx.order.domain.order;
 
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PRODUCTS", schema = "order")
+@Table(name = "ORDERS", schema = "order")
 @Data
-public class Product {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "PRODUCT_ID")
+    private Long productId;
 
     @Column(name = "QUANTITY")
     private Integer quantity;
 
-    @Column(name = "PRICE")
-    private Integer price;
+    @Column(name = "CUSTOMER_ID")
+    private Long customerId;
 
 }

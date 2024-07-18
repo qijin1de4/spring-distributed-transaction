@@ -1,4 +1,4 @@
-package io.hqj.spring.dtx.domain.account;
+package io.hqj.spring.dtx.order.domain.account;
 
 import lombok.Data;
 
@@ -14,10 +14,12 @@ public class Account {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "CUSTOMER_ID")
+    @Column(name = "CUSTOMER_ID", nullable = false, unique = true)
     private Long customerId;
 
-    @Column(name = "BALANCE")
-    private Integer balance;
+    @Column(name = "NAME", nullable = false)
+    private String name;
 
+    @Column(name = "BALANCE", nullable = false)
+    private Integer balance;
 }
