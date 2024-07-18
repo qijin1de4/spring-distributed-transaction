@@ -1,5 +1,6 @@
 package io.hqj.spring.dtx.order.controller;
 
+import io.hqj.spring.dtx.common.domain.BusinessResponse;
 import io.hqj.spring.dtx.order.domain.order.Order;
 import io.hqj.spring.dtx.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,16 @@ public class OrderController {
 
 
     @PostMapping("/orders")
-    public Order createOrder(@RequestBody Order order) {
-        return orderService.createOrder(order);
+    public ResponseEntity<BusinessResponse<Order>> createOrder(@RequestBody Order order) {
+        try {
+            return ResponseEntity.ok(BusinessResponse.getResponse(orderService.createOrder(order)));
+        } catch(Exception e) {
+            return  ResponseEntity.badRequest().body(BusinessResponse.getResponse(500, e.getMessage(), order));
+        }
     }
 
     @GetMapping("/orders/{id}")
-    public ResponseEntity<Order> getOrder(@PathVariable Long id) {
-        return orderService.findOrderById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().build());
+    public ResponseEntity<BusinessResponse<Order>> getOrder(@PathVariable Long id) {
+        return orderService.findOrderById(id).map(order -> ResponseEntity.ok(BusinessResponse.getResponse(order)) ).orElseGet(() -> ResponseEntity.badRequest().build());
     }
 }

@@ -25,6 +25,11 @@
     </scm>
     <dependencies>
         <dependency>
+            <artifactId>tx-common</artifactId>
+            <groupId>io.hqj.spring.distributed-transaction</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>

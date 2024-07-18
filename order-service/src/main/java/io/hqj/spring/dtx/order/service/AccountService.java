@@ -13,11 +13,21 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     public Account createAccount(Account account) {
+        if(account.getBalance() < 0) {
+            throw new RuntimeException("账户余额必须大于或等于0！");
+        }
         return accountRepository.save(account);
     }
 
     public Optional<Account> findAccountById(Long id) {
         return accountRepository.findById(id);
+    }
+
+    public Account updateAccount(Account account) {
+        if(account.getBalance() < 0) {
+            throw new RuntimeException("账户余额必须大于或等于0！");
+        }
+        return accountRepository.save(account);
     }
 
 }

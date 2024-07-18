@@ -3,6 +3,7 @@ package io.hqj.spring.dtx.order.domain.product;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "PRODUCTS", schema = "product")
@@ -26,4 +27,8 @@ public class Product {
     @Column(name = "code", unique = true)
     private Long code;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="PUBTS", nullable = false,
+            columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
+    private Date pubts = new Date();
 }

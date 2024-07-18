@@ -3,6 +3,7 @@ package io.hqj.spring.dtx.order.domain.account;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
@@ -22,4 +23,9 @@ public class Account {
 
     @Column(name = "BALANCE", nullable = false)
     private Integer balance;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="PUBTS", nullable = false,
+            columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
+    private Date pubts = new Date();
 }

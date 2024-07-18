@@ -39,6 +39,7 @@
     </properties>
 
     <modules>
+        <module>tx-common</module>
         <module>product-service</module>
         <module>order-service</module>
     </modules>
@@ -73,13 +74,6 @@
     </dependencyManagement>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+
 
 </project>

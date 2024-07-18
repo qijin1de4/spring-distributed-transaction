@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: order-service
+  datasource:
+    jdbcUrl: jdbc:mysql://localhost:3306/order?useSSL=false
+    username: admin
+    password: admin
+  account-datasource:
+    jdbcUrl: jdbc:mysql://localhost:3306/account?useSSL=false
+    username: admin
+    password: admin
+  product-datasource:
+    jdbcUrl: jdbc:mysql://localhost:3306/product?useSSL=false
+    username: admin
+    password: admin
+
+hibernate:
+  hbm2ddl:
+    auto: update
+  dialect: org.hibernate.dialect.MySQL5Dialect
