@@ -18,3 +18,28 @@ hibernate:
   hbm2ddl:
     auto: update
   dialect: org.hibernate.dialect.MySQL5Dialect
+
+#management:
+#  endpoints:
+#   web:
+#    exposure:
+#     include: *
+#  endpoint:
+#   health:
+#    show-details: always
+#  health:
+#   circuitbreakers:
+#    enabled: true
+#   ratelimiters:
+#    enabled: true
+
+#resilience4j.circuitbreaker:
+#  instances:
+#    pressureTest:
+#      registerHealthIndicator: true
+#      slowCallDurationThreshold: 1000
+#      slowCallRateThreshold: 50
+#      waitDurationInOpenState: 60s
+#      maxWaitDurationInHalfOpenState: 10
+#      ringBufferSizeInHalfOpenState: 200
+#      slidingWindowSize: 100
